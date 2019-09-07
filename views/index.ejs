@@ -9,5 +9,22 @@
 <body>
     
     <h1>this is the landing page</h1>
+
+    <ul>
+      <%  for(var i=0;i<found.length;i++) {  %>
+             <li><%=found[i].username %> - <%= found[i].password %></li>
+       <% } %>
+
+       
+    </ul>
+
+    <form action="/" method="POST">
+    <input type="text" name="username" placeholder="enter username">
+    <input type="text" name="password"  placeholder="password">
+    <button type="submit">Submit</button>
+    
+    
+    </form>
+    
 </body>
 </html>
