@@ -44,6 +44,9 @@ app.get("/",function(req,res) {
         }
     })
 });
+// app.get("/indexall",function(req,res) {
+//     res.render("indexall.ejs");
+// })
 
 app.post("/",function(req,res) {
     var newuser=new User({
@@ -60,6 +63,11 @@ app.post("/",function(req,res) {
     res.redirect("/");
 })
 
+
+
+app.get('/contact',function(req,res) {
+    res.render("contact.ejs");
+})
 
 app.listen(process.env.PORT || 4444,function() {
     console.log("server started");
