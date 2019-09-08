@@ -163,7 +163,7 @@ app.post("/blogs/:id/comments",function(req,res) {
             console.log(found);
             found.save();
             
-            res.render("show.ejs",{found:found});
+            res.redirect("/blogs");
         }
     });
 })

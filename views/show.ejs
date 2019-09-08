@@ -30,7 +30,7 @@
 
 
  
-<!-- <div class="ui main text container segment">
+ <!-- <div class="ui main text container segment">
     <h3>Comments</h3>
     <% for(var i=0;i<found.comments.length;i++) { %>
             <h5><%= found.comments[i].author %></h5>
@@ -50,7 +50,54 @@
     <input type="text" name="about" placeholder="about">
     <button type="submit">post</button>
 </form>
-</div> -->
+</div>  -->
+
+
+<div class="ui main text container segment">
+<div class="ui comments">
+    <h3 class="ui dividing header">Comments</h3>
+    <% for(var i=0;i<found.comments.length;i++) { %>
+    <div class="comment">
+     
+      <div class="content">
+        <a class="author"><%= found.comments[i].author %></a>
+        <div class="metadata">
+            <span class="date"><%= found.comments[i].created %></span>
+        </div>
+        <div class="text">
+          <%= found.comments[i].about %> 
+        </div>
+        <div class="actions">
+          <a class="reply">Reply</a>
+        </div>
+      </div>
+    </div>
+    <% } %>
+    
+    
+        </div>
+     
+     <form action="/blogs/<%= found._id %>/comments" method="POST">
+        <div class="ui form">
+                <div class="field">
+                        <label>Username</label>
+                        <textarea rows="1" placeholder="username" name="author"></textarea>
+                      </div>
+                <div class="field">
+                  <label>Content</label>
+                  <textarea rows="3" placeholder="content" name="about"></textarea>
+                </div>
+                
+              </div>
+              <br>
+              <div class="ui blue labeled submit icon button">
+                    <i class="icon edit"></i> <button type="submit"> Add Reply</button>
+                  </div>
+            </form>
+   
+</div>
+
+
 
 <% include ./partials/footer %>
 
