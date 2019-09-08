@@ -1,0 +1,56 @@
+<% include ./partials/header %>
+<div class="ui main text container segment">
+    <div class="ui huge header"> <%= found.title %></div>
+    <div class="ui top attached ">
+        <div class="item">
+            <img class="ui centered rounded image" src="<%= found.image %>" >
+            <div class="content">
+                <span><%= found.created.toDateString() %></span>
+            </div>
+            <div class="description">
+                <p><%- found.body %></p>
+            </div>
+            <a class="ui orange basic button" href="/blogs/<%= found._id %>/edit">Edit</a>
+            <form id="delete" action="/blogs/<%= found._id %>?_method=DELETE" method="POST">
+                <button class="ui red basic button">Delete</button>
+            </form>
+            <p>Note:You must login to Edit the blog</p>
+
+
+
+
+           
+            
+        </div>
+       
+    </div>
+   
+    
+</div>
+
+
+ 
+<!-- <div class="ui main text container segment">
+    <h3>Comments</h3>
+    <% for(var i=0;i<found.comments.length;i++) { %>
+            <h5><%= found.comments[i].author %></h5>
+            <p><%= found.comments[i].about %></p>
+         <% } %>
+        
+
+            
+            <hr>
+    
+  
+<h3>Write your comments here!!!</h3> 
+
+<form action="/blogs/<%=found._id %>/comments" method="POST">
+
+    <input type="text" name="author" id="" placeholder="author">
+    <input type="text" name="about" placeholder="about">
+    <button type="submit">post</button>
+</form>
+</div> -->
+
+<% include ./partials/footer %>
+

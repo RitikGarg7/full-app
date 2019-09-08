@@ -1,30 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    
-    <h1>this is the landing page</h1>
+<% include ./partials/header %>
 
-    <ul>
-      <%  for(var i=0;i<found.length;i++) {  %>
-             <li><%=found[i].username %> - <%= found[i].password %></li>
-       <% } %>
+<div class="ui main text container">
+    <div class="ui huge header">Recent Blogs !!</div>
+    <div class="ui top  attached segment">
+        <div class="ui divided items">
+            <% blogs.forEach(function(blog){ %>
+                <div class="item">
+                    <div class="image">
+                        <img src="<%= blog.image %>" >
+                    </div>
+                    <div class="content">
+                         <a class="header" href="/blogs/<%= blog._id %>"><%=blog.title%></a>
+                         <div class="meta">
+                             <span><%= blog.created.toDateString() %></span>
+                         </div>
+                         <div class="description">
+                             <p><%- blog.body %>...</p>
+                         </div>
+                         <div class="extra">
+                             <a class="ui floated basic violet button" href="/blogs/<%= blog._id %>">
+                                 Read More
+                                 <i class="right chevron icon"></i>
+                             </a>
+                         </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</div>
 
-       
-    </ul>
 
-    <form action="/" method="POST">
-    <input type="text" name="username" placeholder="enter username">
-    <input type="text" name="password"  placeholder="password">
-    <button type="submit">Submit</button>
-    
-    
-    </form>
-    
-</body>
-</html>
+
+<div style="margin-bottom: 100px"></div>
+
+<% include ./partials/footer %>
+
+
+
+
